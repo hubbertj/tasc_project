@@ -1,0 +1,66 @@
+{
+    "items": [
+    {
+        "id": 01,
+        "name": "16lb bag of skittles",
+        "imported": false,
+        "type": null,
+        "price": 16.00
+    },
+    {
+        "id": 02,
+        "name": "Walkman",
+        "type": null,
+        "imported": false,
+        "price": 99.99
+    },
+    {
+        "id": 03,
+        "name": "bag of microwave popcorn",
+        "type": null,
+        "imported": false,
+        "price": 0.99
+    },
+    {
+        "id": 04,
+        "name": "bag of vanilla",
+        "type": "hazelnut coffee",
+        "imported": true,
+        "price": 16.00
+    },
+    {
+        "id": 05,
+        "name": "vespa",
+        "type": null,
+        "imported": true,
+        "price": 15001.25
+    },
+    {
+        "id": 06,
+        "name": "almond snickers",
+        "type": "crate",
+        "imported": true,
+        "price": 75.99
+    },
+    {
+        "id": 07,
+        "name": "discman",
+        "type": null,
+        "imported": false,
+        "price": 55.00
+    },
+    {
+        "id": 08,
+        "name": "bottle of wine",
+        "type": null,
+        "imported": true,
+        "price": 10.00
+    },
+    {
+        "id": 09,
+        "name": "bag of Fair - Trade Coffee ",
+        "type": null,
+        "imported": false,
+        "price": 997.99
+    }]
+}
