@@ -8,9 +8,9 @@ This is a test project for the TASC Company.
 The goal of this assessment is to validate your ability to create a high quality, production
 ready application including unit tests that meets the stated requirements.
 
-..*The solution should be implemented in Typescript or ES6 (Node.js).
-..*It is preferred that you write the output to stdout. 
-..*Best Coding and Design Practices are required.
+* The solution should be implemented in Typescript or ES6 (Node.js).
+* It is preferred that you write the output to stdout. 
+* Best Coding and Design Practices are required.
 
 #### Problem Statement
 ---
