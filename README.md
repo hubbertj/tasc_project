@@ -21,7 +21,7 @@ ready application including unit tests that meets the stated requirements.
 ⋅⋅5.	Write an application that persists or prints out the receipt details for these shopping baskets.
 
 <h6><u>Input</u><h6>
-..<b>Shopping Basket 1:</b>
+..Shopping Basket 1:
 ....1 16lb bag of Skittles at 16.00
 ....1 Walkman at 99.99
 ....1 bag of microwave Popcorn at 0.99
