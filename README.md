@@ -14,11 +14,11 @@ ready application including unit tests that meets the stated requirements.
 
 #### Problem Statement
 ---
-⋅⋅1.	Basic sales tax is applicable at a rate of 10% on all goods, except candy, popcorn and coffee, which are exempt.
-⋅⋅2.	Import duty is an additional sales tax applicable on all imported goods at a rate of 5%, with no exemptions.
-⋅⋅3.	When items are purchased a receipt is produced which lists the name of all the items and their price (including tax), finishing with the total cost of the items, and the total amounts of sales taxes paid.
-⋅⋅4.	Sales tax is rounded up to the nearest multiple of $0.05. This rounding is done by item, by type of tax (basic sales and import duty)
-⋅⋅5.	Write an application that persists or prints out the receipt details for these shopping baskets.
+1.	Basic sales tax is applicable at a rate of 10% on all goods, except candy, popcorn and coffee, which are exempt.
+2.	Import duty is an additional sales tax applicable on all imported goods at a rate of 5%, with no exemptions.
+3.	When items are purchased a receipt is produced which lists the name of all the items and their price (including tax), finishing with the total cost of the items, and the total amounts of sales taxes paid.
+4.	Sales tax is rounded up to the nearest multiple of $0.05. This rounding is done by item, by type of tax (basic sales and import duty)
+5.	Write an application that persists or prints out the receipt details for these shopping baskets.
 
 <h6><u>Input</u><h6>
 ..Shopping Basket 1:
