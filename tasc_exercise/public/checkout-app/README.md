@@ -1,6 +1,8 @@
-# CheckoutApp
+# Checkout Application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+
+The purpose of this project is used to server as a simple frontend to the tasc checkout backend.
 
 ## Development server
 
