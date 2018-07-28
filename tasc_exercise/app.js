@@ -17,7 +17,7 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
     if (err) { throw err; }
     let port = process.env.PORT || 10010;
 
-    global.DB = new JsonDB(__dirname + "/static_database/db", true, false);
+    global.DB = new JsonDB(__dirname + "/static_database/db", false, false);
 
     // swagger ui 
     app.use(swaggerUi(swaggerExpress.runner.swagger));

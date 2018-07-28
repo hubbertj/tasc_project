@@ -28,9 +28,9 @@ function _createTransaction(req, res) {
             .then((transaction) => {
                 res.json(transaction);
             })
-            .catch((err) => {
-                var error = new ErrorApi(err);
-                error.code = 500;
+            .catch((err, code) => {
+                var error = new ErrorApi(err.message);
+                error.code = err.code || 500;
                 res.status(error.code).json(error.getErrorMessage());
             })
 
