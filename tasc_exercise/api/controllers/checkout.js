@@ -1,46 +1,57 @@
 'use strict';
-
 const util = require('util');
 
+/**
+ * [getTransaction description]
+ * @param  {[type]} req [description]
+ * @param  {[type]} res [description]
+ * @return {[type]}     [description]
+ */
+function getTransaction(req, res) {
+    var name = req.swagger.params.name.value || 'stranger';
+    var hello = util.format('Hello, %s!', name);
+    res.json(hello);
+}
+
+/**
+ * [createTransaction description]
+ * @param  {[type]} req [description]
+ * @param  {[type]} res [description]
+ * @return {[type]}     [description]
+ */
+function createTransaction(req, res) {
+    var name = req.swagger.params.name.value || 'stranger';
+    var hello = util.format('Hello, %s!', name);
+    res.json(hello);
+}
+
+/**
+ * [putTransaction description]
+ * @param  {[type]} req [description]
+ * @param  {[type]} res [description]
+ * @return {[type]}     [description]
+ */
+function putTransaction(req, res) {
+    var name = req.swagger.params.name.value || 'stranger';
+    var hello = util.format('Hello, %s!', name);
+    res.json(hello);
+}
+
+/**
+ * [deleteTransaction description]
+ * @param  {[type]} req [description]
+ * @param  {[type]} res [description]
+ * @return {[type]}     [description]
+ */
+function deleteTransaction(req, res) {
+    var name = req.swagger.params.name.value || 'stranger';
+    var hello = util.format('Hello, %s!', name);
+    res.json(hello);
+}
+
 module.exports = {
-    get: checkoutGet,
-    post: checkoutPost,
-    put: checkoutPut,
-    delete: checkoutDelete
+    getTransaction: getTransaction,
+    createTransaction: createTransaction,
+    putTransaction: putTransaction,
+    deleteTransaction: deleteTransaction
 };
-
-function checkoutGet(req, res) {
-    // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-    var name = req.swagger.params.name.value || 'stranger';
-    var hello = util.format('Hello, %s!', name);
-
-    // this sends back a JSON response which is a single string
-    res.json(hello);
-}
-
-function checkoutPost(req, res) {
-    // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-    var name = req.swagger.params.name.value || 'stranger';
-    var hello = util.format('Hello, %s!', name);
-
-    // this sends back a JSON response which is a single string
-    res.json(hello);
-}
-
-function checkoutPut(req, res) {
-    // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-    var name = req.swagger.params.name.value || 'stranger';
-    var hello = util.format('Hello, %s!', name);
-
-    // this sends back a JSON response which is a single string
-    res.json(hello);
-}
-
-function checkoutDelete(req, res) {
-    // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-    var name = req.swagger.params.name.value || 'stranger';
-    var hello = util.format('Hello, %s!', name);
-
-    // this sends back a JSON response which is a single string
-    res.json(hello);
-}
