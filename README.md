@@ -49,5 +49,8 @@ __Output__
 &nbsp;&nbsp;1 bag of microwave Popcorn: 0.99<br>
 &nbsp;&nbsp;Sales Taxes: 10.00<br>
 
+#### How to run the project
+-
+
 
 
