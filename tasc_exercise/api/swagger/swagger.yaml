@@ -94,7 +94,7 @@ paths:
         - application/json
       produces:
         - application/json
-      operationId: post
+      operationId: createTransaction
       parameters:
         - in: body
           name: items
