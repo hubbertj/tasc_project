@@ -21,26 +21,26 @@ ready application including unit tests that meets the stated requirements.
 5.	Write an application that persists or prints out the receipt details for these shopping baskets.
 
 __Input__
-..Shopping Basket 1:
-....1 16lb bag of Skittles at 16.00
-....1 Walkman at 99.99
-....1 bag of microwave Popcorn at 0.99
+.. Shopping Basket 1:
+.... 1. 16lb bag of Skittles at 16.00
+.... 2. Walkman at 99.99
+.... 3. bag of microwave Popcorn at 0.99
 
 __Shopping Basket 2:__
-....1 imported bag of Vanilla-Hazelnut Coffee at 11.00
-....1 Imported Vespa at 15,001.25
+.... 1. imported bag of Vanilla-Hazelnut Coffee at 11.00
+.... 2. Imported Vespa at 15,001.25
 
 __Shopping Basket 3:__
-....1 imported crate of Almond Snickers at 75.99
-....1 Discman at 55.00
-....1 Imported Bottle of Wine at 10.00
-....1 300# bag of Fair-Trade Coffee at 997.99
+.... 1. imported crate of Almond Snickers at 75.99
+.... 2. Discman at 55.00
+.... 3. Imported Bottle of Wine at 10.00
+.... 4. 300# bag of Fair-Trade Coffee at 997.99
 
 __Output__
 __Output 1:__
-....1 16lb bag of Skittles: 16.00
-....1 Walkman: 109.99
-....1 bag of microwave Popcorn: 0.99
+.... 1. 16lb bag of Skittles: 16.00
+.... 2. Walkman: 109.99
+.... 3. bag of microwave Popcorn: 0.99
 ....Sales Taxes: 10.00
 
 
