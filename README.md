@@ -50,7 +50,7 @@ __Output__
 &nbsp;&nbsp;Sales Taxes: 10.00<br>
 
 #### How to run the project
--
+***
 
 
 
