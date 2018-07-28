@@ -2,7 +2,7 @@
 const util = require('util');
 
 /**
- * [hello description]
+ * [_healthCheck description]
  * @param  {[type]} req [description]
  * @param  {[type]} res [description]
  * @return {[type]}     [description]

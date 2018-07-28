@@ -1,5 +1,7 @@
 'use strict';
 const util = require('util');
+const ErrorApi = require('../helpers/error.api');
+const TransactionApi = require('../helpers/transaction.api');
 
 /**
  * [getTransaction description]
@@ -7,7 +9,7 @@ const util = require('util');
  * @param  {[type]} res [description]
  * @return {[type]}     [description]
  */
-function getTransaction(req, res) {
+function _getTransaction(req, res) {
     var name = req.swagger.params.name.value || 'stranger';
     var hello = util.format('Hello, %s!', name);
     res.json(hello);
@@ -19,10 +21,24 @@ function getTransaction(req, res) {
  * @param  {[type]} res [description]
  * @return {[type]}     [description]
  */
-function createTransaction(req, res) {
-    var name = req.swagger.params.name.value || 'stranger';
-    var hello = util.format('Hello, %s!', name);
-    res.json(hello);
+function _createTransaction(req, res) {
+    let items = req.swagger.params.items.value || null;
+    if (items && items.length > 0) {
+        new TransactionApi(items).save()
+            .then((transaction) => {
+                res.json(transaction);
+            })
+            .catch((err) => {
+                var error = new ErrorApi(err);
+                error.code = 500;
+                res.status(error.code).json(error.getErrorMessage());
+            })
+
+    } else {
+        var error = new ErrorApi("Items must be passed in the list to create a transaction.");
+        error.code = 400;
+        res.status(error.code).json(error.getErrorMessage());
+    }
 }
 
 /**
@@ -31,7 +47,7 @@ function createTransaction(req, res) {
  * @param  {[type]} res [description]
  * @return {[type]}     [description]
  */
-function putTransaction(req, res) {
+function _putTransaction(req, res) {
     var name = req.swagger.params.name.value || 'stranger';
     var hello = util.format('Hello, %s!', name);
     res.json(hello);
@@ -43,15 +59,15 @@ function putTransaction(req, res) {
  * @param  {[type]} res [description]
  * @return {[type]}     [description]
  */
-function deleteTransaction(req, res) {
+function _deleteTransaction(req, res) {
     var name = req.swagger.params.name.value || 'stranger';
     var hello = util.format('Hello, %s!', name);
     res.json(hello);
 }
 
 module.exports = {
-    getTransaction: getTransaction,
-    createTransaction: createTransaction,
-    putTransaction: putTransaction,
-    deleteTransaction: deleteTransaction
+    getTransaction: _getTransaction,
+    createTransaction: _createTransaction,
+    putTransaction: _putTransaction,
+    deleteTransaction: _deleteTransaction
 };

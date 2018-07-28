@@ -27,11 +27,11 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
 
     app.listen(port);
 
-    console.log('\nSwagger-ui http://127.0.0.1:' + port + '/docs');
-    console.log('Frontend Checkout webapp  http://127.0.0.1:' + port + '/');
+    console.log('\nSwagger-ui:\nhttp://127.0.0.1:' + port + '/docs');
+    console.log('Frontend Checkout Webapp:\nhttp://127.0.0.1:' + port + '/');
 
     if (swaggerExpress.runner.swagger.paths['/health']) {
-        console.log('try this:\ncurl -X GET --header \'Accept: application/json\' \'http://localhost:'+ port +'/api/v1/health?status=check\'');
+        console.log('Health Check:\ncurl -X GET --header \'Accept: application/json\' \'http://localhost:'+ port +'/api/v1/health?status=check\'');
 
     }
 });

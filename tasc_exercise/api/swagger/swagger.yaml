@@ -21,7 +21,7 @@ tags:
 
 paths:
   "/checkout/{transactionId}":
-    x-swagger-router-controller: checkout
+    x-swagger-router-controller: checkout.controller
     get:
       tags:
         - Checkout
@@ -86,6 +86,7 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
   /checkout:
+    x-swagger-router-controller: checkout.controller
     post:
       tags:
         - Checkout
@@ -115,7 +116,7 @@ paths:
             $ref: "#/definitions/ErrorResponse"
 
   /health:
-    x-swagger-router-controller: health
+    x-swagger-router-controller: health.controller
     get:
       tags:
         - Health
@@ -158,6 +159,9 @@ definitions:
     properties:
       message:
         type: string
+      code:
+        type: integer
+        format: int64
   CheckoutCreateRequest:
     properties:
       quantity:
