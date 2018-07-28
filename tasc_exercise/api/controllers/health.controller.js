@@ -8,7 +8,8 @@ const util = require('util');
  * @return {[type]}     [description]
  */
 function _healthCheck(req, res) {
-    var status = req.swagger.params.status.value || 'stranger';
+	console.log('hello');
+    var status = req.swagger.params.status.value || 'UNKNOWN';
     var message = util.format('System health is good, status = %s', status);
     res.json(message);
 }

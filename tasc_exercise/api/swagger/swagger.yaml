@@ -120,7 +120,7 @@ paths:
     get:
       tags:
         - Health
-      description: Returns 'Hello' to the caller
+      description: Returns status of the system.
       operationId: healthCheck
       parameters:
         - name: status
