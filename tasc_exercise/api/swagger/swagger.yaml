@@ -14,11 +14,22 @@ consumes:
 # format of the responses to the client (Accepts)
 produces:
   - application/json
+
+tags:
+  - name: Health
+    description: Used to test health of the backend.
+  - name: Checkout
+    description: Used to manage checkout transactions.
+  - name: Item
+    description: CRUD for getting a item.
+
 paths:
   /hello:
     # binds a127 app logic to a route
     x-swagger-router-controller: hello_world
     get:
+      tags:
+        - Health
       description: Returns 'Hello' to the caller
       # used as the method name of the controller
       operationId: hello
@@ -43,6 +54,8 @@ paths:
     # binds a127 app logic to a route
     x-swagger-router-controller: checkout
     get:
+      tags:
+        - Checkout
       description: Returns list of active items
       operationId: get
       parameters:
@@ -61,6 +74,8 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
     post:
+      tags:
+        - Checkout
       description: submits items you wish to purchase.
       operationId: post
       parameters:
@@ -79,6 +94,8 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
     put:
+      tags:
+        - Checkout
       description: Updates an existing purchase transaction.
       operationId: put
       parameters:
@@ -97,6 +114,8 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
     delete:
+      tags:
+        - Checkout
       description: Removes a transaction.
       operationId: delete
       parameters:
