@@ -5,6 +5,8 @@ const swaggerUi = require('swagger-tools/middleware/swagger-ui');
 const app = require('express')();
 const express = require('express');
 const FRONTEND_DIR = __dirname + '/public/checkout-app/dist/checkout-app';
+const JsonDB = require('node-json-db');
+
 module.exports = app; // for testing
 
 var config = {
@@ -14,6 +16,8 @@ var config = {
 SwaggerExpress.create(config, function(err, swaggerExpress) {
     if (err) { throw err; }
     let port = process.env.PORT || 10010;
+
+    global.DB = new JsonDB(__dirname + "/static_database/db", true, false);
 
     // swagger ui 
     app.use(swaggerUi(swaggerExpress.runner.swagger));
