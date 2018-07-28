@@ -30,7 +30,8 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
     console.log('\nSwagger-ui http://127.0.0.1:' + port + '/docs');
     console.log('Frontend Checkout webapp  http://127.0.0.1:' + port + '/');
 
-    if (swaggerExpress.runner.swagger.paths['/hello']) {
-        console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
+    if (swaggerExpress.runner.swagger.paths['/health']) {
+        console.log('try this:\ncurl -X GET --header \'Accept: application/json\' \'http://localhost:'+ port +'/api/v1/health?status=check\'');
+
     }
 });
