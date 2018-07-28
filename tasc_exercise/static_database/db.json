@@ -5,68 +5,89 @@
         "name": "16lb bag of skittles",
         "imported": false,
         "type": null,
-        "price": 16.00
+        "price": 16.00,
+        "lastUpdated": 1532808680263
     },
     {
         "id": 02,
         "name": "Walkman",
         "type": null,
         "imported": false,
-        "price": 99.99
+        "price": 99.99,
+        "lastUpdated": 1532808680263
     },
     {
         "id": 03,
         "name": "bag of microwave popcorn",
         "type": null,
         "imported": false,
-        "price": 0.99
+        "price": 0.99,
+        "lastUpdated": 1532808680263
     },
     {
         "id": 04,
         "name": "bag of vanilla",
         "type": "hazelnut coffee",
         "imported": true,
-        "price": 16.00
+        "price": 16.00,
+        "lastUpdated": 1532808680263
     },
     {
         "id": 05,
         "name": "vespa",
         "type": null,
         "imported": true,
-        "price": 15001.25
+        "price": 15001.25,
+        "lastUpdated": 1532808680263
     },
     {
         "id": 06,
         "name": "almond snickers",
         "type": "crate",
         "imported": true,
-        "price": 75.99
+        "price": 75.99,
+        "lastUpdated": 1532808680263
     },
     {
         "id": 07,
         "name": "discman",
         "type": null,
         "imported": false,
-        "price": 55.00
+        "price": 55.00,
+        "lastUpdated": 1532808680263
     },
     {
         "id": 08,
         "name": "bottle of wine",
         "type": null,
         "imported": true,
-        "price": 10.00
+        "price": 10.00,
+        "lastUpdated": 1532808680263
     },
     {
         "id": 09,
         "name": "bag of Fair - Trade Coffee ",
         "type": null,
         "imported": false,
-        "price": 997.99
+        "price": 997.99,
+        "lastUpdated": 1532808680263
     }],
     "users": [
     {
         "id": 01,
         "username": "admin",
         "password": "admin",
+        "lastUpdated": 1532808680263
+    }],
+    "transaction": [
+    {
+        "id": 01,
+        "total": 0.00,
+        "items": [
+        {
+            "id": 01,
+            "quantity": 1
+        }],
+        "lastUpdated": 1532808680263
     }]
 }
