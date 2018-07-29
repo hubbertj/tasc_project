@@ -14,10 +14,35 @@
   },
   "devDependencies": {
     "should": "^7.1.0",
-    "supertest": "^1.0.0"
+    "supertest": "^1.0.0",
+    "@angular/compiler-cli": "^6.0.3",
+    "@angular-devkit/build-angular": "~0.6.6",
+    "typescript": "~2.7.2",
+    "@angular/cli": "~6.0.7",
+    "@angular/language-service": "^6.0.3",
+    "@types/jasmine": "~2.8.6",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codelyzer": "~4.2.1",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~1.7.1",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.0",
+    "karma-jasmine": "~1.1.1",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.3.0",
+    "ts-node": "~5.0.1",
+    "tslint": "~5.9.1"
   },
   "scripts": {
-    "start": "node app.js",
-    "test": "swagger project test"
+    "start": "cd public/checkout-app/ && ng build && cd ../../ && node app.js",
+    "test": "swagger project test",
+    "ng": "cd public/checkout-app/ && ng",
+    "start-frontend": "cd public/checkout-app/ && ng serve",
+    "build-frontend": "cd public/checkout-app/ && ng build",
+    "test-frontend": "cd public/checkout-app/ && ng test",
+    "lint": "cd public/checkout-app/ && ng lint",
+    "e2e": "cd public/checkout-app/ && ng e2e"
   }
 }
