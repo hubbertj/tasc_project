@@ -49,8 +49,29 @@ __Output__
 &nbsp;&nbsp;1 bag of microwave Popcorn: 0.99<br>
 &nbsp;&nbsp;Sales Taxes: 10.00<br>
 
-#### How to run the project
+#### How to run the install and run project
 ***
+1. install the packages
+`npm install`
+2. optional - install swagger globally
+`npm install -g swagger`
+- Now you can run the project is development with
+`swagger project start`
+
+or
+
+1. install the packages
+`npm install`
+2. Run the project like a native node application
+`npm start`
+This will:
+* compile the angular frontend
+* start the project `node app.js`
+
+#### How to run backend and frontend unit tests
+***
+
+
 
 
 
