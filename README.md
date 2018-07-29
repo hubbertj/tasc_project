@@ -70,6 +70,42 @@ This will:
 
 #### How to run backend and frontend unit tests
 ***
+The backend unit testing is accomlished by using the standard [should][1] & [supertest][2] npm libaries.<br>
+The frontend unit testing is accomlished by using the native angular cli generated angular > 2 style 
+which uses the [Jasmine][3] & [Karma][4].
+
+__Backend unit testing__
+1. asdsad
+2. asdsad
+3. asdsad	
+__Frontend unit testing__
+1. asdsad
+2. asdsad
+3. asdsad	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1]: https://www.npmjs.com/package/should
+[2]: https://www.npmjs.com/package/supertest
+[3]: https://www.npmjs.com/package/jasmine
+[4]: https://www.npmjs.com/package/karma
 
 
 
