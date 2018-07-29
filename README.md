@@ -58,7 +58,7 @@ __Output__
 - Now you can run the project is development with
 `swagger project start`
 
-or
+> or
 
 1. install the packages<br>
 `npm install`<br>
