@@ -65,8 +65,8 @@ or
 2. Run the project like a native node application<br>
 `npm start`<br>
 __This will:__
->> compile the angular frontend
->> start the project <br>`node app.js`<br>
+> compile the angular frontend<br>
+> start the project <br>`node app.js`<br>
 
 ## UNIT Testing
 This is how to run the backend and frontend unit test.
