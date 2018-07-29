@@ -68,8 +68,9 @@ This will:
 * compile the angular frontend
 * start the project `node app.js`
 
-#### How to run backend and frontend unit tests
-***
+## UNIT Testing
+This is how to run the backend and frontend unit test.
+
 The backend unit testing is accomlished by using the standard [should][1] & [supertest][2] npm libaries.<br>
 The frontend unit testing is accomlished by using the native angular cli generated angular > 2 style 
 which uses the [Jasmine][3] & [Karma][4].
@@ -78,10 +79,12 @@ __Backend unit testing__
 1. asdsad
 2. asdsad
 3. asdsad	
+<br>
 __Frontend unit testing__
 1. asdsad
 2. asdsad
-3. asdsad	
+3. asdsad
+<br>	
 
 
 
