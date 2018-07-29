@@ -60,18 +60,18 @@ __Output__
 
 or
 
-1. install the packages
-`npm install`
-2. Run the project like a native node application
-`npm start`
-This will:
+1. install the packages<br>
+`npm install`<br>
+2. Run the project like a native node application<br>
+`npm start`<br>
+__This will:__<br>
 * compile the angular frontend
-* start the project `node app.js`
+* start the project <br>`node app.js`<br>
 
 ## UNIT Testing
 This is how to run the backend and frontend unit test.
 
-The backend unit testing is accomlished by using the standard [should][1] & [supertest][2] npm libaries.<br>
+The backend unit testing is accomlished by using the standard [Should][1] & [Supertest][2] npm libaries.<br>
 The frontend unit testing is accomlished by using the native angular cli generated angular > 2 style 
 which uses the [Jasmine][3] & [Karma][4].
 
