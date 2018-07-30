@@ -36,6 +36,7 @@
     "tslint": "~5.9.1"
   },
   "scripts": {
+    "postinstall": "cd public/checkout-app/ && npm install",
     "start": "cd public/checkout-app/ && ng build && cd ../../ && node app.js",
     "test": "swagger project test",
     "ng": "cd public/checkout-app/ && ng",
