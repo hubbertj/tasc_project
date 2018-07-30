@@ -17,7 +17,7 @@ const checkoutPostData = [{
 ];
 
 describe('controllers', function() {
-    describe('checkout', function() {
+    describe('item', function() {
         describe('POST /checkout', function() {
             it('should accept items and return a transaction', function(done) {
                 request(server)

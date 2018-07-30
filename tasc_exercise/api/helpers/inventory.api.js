@@ -3,7 +3,7 @@ const util = require('util');
 const Transaction = require('../entity/transaction.entity');
 const toFixed = require('tofixed');
 
-function TransactionApi(items) {
+function InventoryApi(items) {
     var self = this;
     this.items = items;
 
@@ -136,4 +136,4 @@ function TransactionApi(items) {
     }
 }
 
-module.exports = TransactionApi;
+module.exports = InventoryApi;
