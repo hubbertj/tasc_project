@@ -3,21 +3,16 @@
 const SwaggerExpress = require('swagger-express-mw');
 const swaggerUi = require('swagger-tools/middleware/swagger-ui');
 const app = require('express')();
+const globals = require('./globals.js');
 const express = require('express');
 const FRONTEND_DIR = __dirname + '/public/checkout-app/dist/checkout-app';
 const JsonDB = require('node-json-db');
 
 module.exports = app; // for testing
 
-var config = {
-    appRoot: __dirname // required config
-};
-
-SwaggerExpress.create(config, function(err, swaggerExpress) {
+let onSwaggerStart = (err, swaggerExpress) => {
     if (err) { throw err; }
-    let port = process.env.PORT || 10010;
-
-    global.DB = new JsonDB(__dirname + "/static_database/db", false, false);
+    let port = tasc.settings.server.port || 10010;
 
     // swagger ui 
     app.use(swaggerUi(swaggerExpress.runner.swagger));
@@ -35,7 +30,27 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
     console.log('Frontend Checkout Webapp:\nhttp://127.0.0.1:' + port + '/');
 
     if (swaggerExpress.runner.swagger.paths['/health']) {
-        console.log('Health Check:\ncurl -X GET --header \'Accept: application/json\' \'http://localhost:'+ port +'/api/v1/health?status=check\'');
-
+        console.log('Health Check:\ncurl -X GET --header \'Accept: application/json\' \'http://localhost:' + port + '/api/v1/health?status=check\'');
     }
-});
+}
+
+// Main
+globals.init()
+    .then((aGlobal) => {
+        global.tasc = aGlobal;
+        return new Promise((result, reject) => {
+            try {
+                var db = new JsonDB(__dirname + "/static_database/db", false, false);
+                return result(db);
+            } catch (err) {
+                return reject(err);
+            }
+        });
+    })
+    .then((db) => {
+        if (db) global.DB = db;
+        SwaggerExpress.create({ appRoot: __dirname }, onSwaggerStart);
+    })
+    .catch((err) => {
+        console.error(err);
+    });

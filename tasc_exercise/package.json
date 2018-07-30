@@ -10,7 +10,9 @@
   "dependencies": {
     "express": "^4.12.3",
     "node-json-db": "^0.7.5",
-    "swagger-express-mw": "^0.1.0"
+    "read-yaml": "^1.1.0",
+    "swagger-express-mw": "^0.1.0",
+    "tofixed": "^1.0.0"
   },
   "devDependencies": {
     "should": "^7.1.0",

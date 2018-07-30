@@ -1,11 +1,17 @@
 'use strict';
 const util = require('util');
 const Transaction = require('../entity/transaction.entity');
+const toFixed = require('tofixed');
 
 function TransactionApi(items) {
     var self = this;
     this.items = items;
 
+    /**
+     * The total for just the items, rounded to nearest cent.
+     * @param  {[type]} itms [description]
+     * @return {[type]}      [description]
+     */
     this.getTransactionTotal = function(itms) {
         let items = itms || self.items;
         let itemsList = DB.getData("/item");
@@ -16,27 +22,43 @@ function TransactionApi(items) {
                 total += (fItem.price * items[i].quantity);
             }
         }
-        return total;
+        return parseFloat(toFixed(total, 2));
     }
 
-    this.getTransactionTotalWithTax = function(itms) {
+    /**
+     * [getTaxTotal description]
+     * @param  {[type]} itms [description]
+     * @return {[type]}      [description]
+     */
+    this.getTaxTotal = function(itms) {
         let items = itms || self.items;
         let itemsList = DB.getData("/item");
-        let total = 0;
+        let totalTax = 0;
+        let totalImportTax = 0;
+
+        let taxDomesticRate = tasc.defaults.taxes.domestic.default;
+        let taxImportRate = tasc.defaults.taxes.import.default;
+        let roundAmount = tasc.defaults.taxes.round;
+
         for (var i in items) {
             var fItem = itemsList.find((item) => item.id === items[i].ItemId);
             if (fItem && 'price' in fItem) {
-                total += (fItem.price * items[i].quantity);
+                if ('except' in fItem && !fItem.except) {
+                    totalTax += Math.ceil(((fItem.price * items[i].quantity) * taxDomesticRate) / roundAmount) * roundAmount;
+                }
+                if ('import' in fItem && fItem.except) {
+                    totalImportTax += Math.ceil(((fItem.price * items[i].quantity) * taxImportRate) / roundAmount) * roundAmount;
+                }
             }
         }
-        return total;
+        return totalTax + totalImportTax;
     }
 
+    /**
+     * [save description]
+     * @return {[type]} [description]
+     */
     this.save = function() {
-
-        //verify all items are real,
-        //get the total for all items and sales tax
-        //save then to the database as a transaction
         return new Promise((result, reject) => {
             try {
                 let itemsList = DB.getData("/item");
@@ -64,6 +86,7 @@ function TransactionApi(items) {
                     //Adds current prices to items.
                     var fItem = itemsList.find((aItem) => aItem.id === self.items[item].ItemId);
                     if (fItem) {
+                        fItem.quantity = self.items[item].quantity;
                         transItems.push(fItem);
                     }
                 }
@@ -72,24 +95,28 @@ function TransactionApi(items) {
                     newTransactionId = transactionList.length + 2;
                 }
 
+                //totals
+                let tax = self.getTaxTotal();
+                let subTotal = self.getTransactionTotal();
+                let totalRounded = parseFloat(toFixed((tax + subTotal), 2));
+
                 transaction = new Transaction({
                     id: newTransactionId,
                     items: transItems,
-                    total: self.getTransactionTotalWithTax()
+                    tax: tax,
+                    subTotal: subTotal,
+                    total: totalRounded
                 });
                 transactionList.push(transaction);
 
-                // console.log(transactionList);
-
                 DB.push("/transaction", transactionList);
                 DB.save();
-
-
+                return result(transaction);
 
             } catch (err) {
                 return reject(err);
             }
-            return result(true);
+            
         });
     }
 }

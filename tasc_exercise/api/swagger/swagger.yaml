@@ -183,13 +183,19 @@ definitions:
       id:
         type: integer
         format: int64
+      subTotal:
+        type: number
+        format: double
+      tax:
+        type: number
+        format: double
+      total:
+        type: number
+        format: double 
       items:
         type: array
         items:
           $ref: "#/definitions/Item"
-      saleTotal:
-        type: number
-        format: double 
 
   Item:
     properties:
@@ -200,10 +206,15 @@ definitions:
         type: string
       type:
         type: string
-      imported:
+      import:
+        type: boolean
+      except:
         type: boolean
       price:
         type: number
-        format: double 
+        format: double
+      quantity:
+        type: integer
+        format: int64
     xml:
       name: Item

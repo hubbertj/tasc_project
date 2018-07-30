@@ -34,4 +34,22 @@ swagger:
     swagger_raw:
       name: swagger_raw
 
+# Settings up environment
+environment: development
+# environment: production
+# environment: local
+# environment: qa
+development:
+  server:
+    port: 10010
+production:
+  server:
+    port: 8080
+taxes:
+  domestic:
+    default: .1
+  import:
+    default: .5
+  round: .05
+
 # any other values in this file are just loaded into the config for application access...
