@@ -227,6 +227,27 @@ paths:
             $ref: "#/definitions/ErrorResponse"
   /item:
     x-swagger-router-controller: item.controller
+    post:
+      tags:
+        - Item
+      description: Adds an single item in the system.
+      operationId: postItem
+      parameters:
+        - in: body
+          name: item
+          description: Item which will be adding to the system.
+          required: true
+          schema:
+            $ref: "#/definitions/ItemNew"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Item"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
     put:
       tags:
         - Item
@@ -329,7 +350,21 @@ definitions:
             quantity:
               type: integer
               format: int64
-
+  ItemNew:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      import:
+        type: boolean
+      except:
+        type: boolean
+      price:
+        type: number
+        format: double
+    xml:
+      name: ItemNew
   Item:
     properties:
       id:

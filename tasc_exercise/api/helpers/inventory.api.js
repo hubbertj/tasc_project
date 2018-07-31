@@ -1,7 +1,6 @@
 'use strict';
 const util = require('util');
 const Item = require('../entity/item.entity');
-const toFixed = require('tofixed');
 
 function InventoryApi() {
     var self = this;
@@ -55,8 +54,27 @@ function InventoryApi() {
      * @param  {[obj]} item Item we are saveing.
      * @return {obj} Promise
      */
-    this.saveItem = function(item) {
-        return new Promise((result, reject) => {});
+    this.saveItem = function(itemAttr) {
+        return new Promise((result, reject) => {
+            try {
+                                console.log(DB);
+                let item = new Item(itemAttr);
+                let itemList = DB.getData("/item");
+
+                item.id = 1;
+
+                if (itemList && itemList.length > 0) {
+                    item.id = itemList.length + 2;
+                }
+
+                itemList.push(item);
+                DB.save();
+                return result(item);
+
+            } catch (err) {
+                return reject(err);
+            }
+        });
     }
 }
 
