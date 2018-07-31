@@ -53,14 +53,15 @@ __Output__
 ***
 
 - You should have npm and node install on your computer. If not here is a link how to install them [How-to-install-node][5]
-- I recommend if your new to node to learn about and use nvm (node version manger) to manage your node version [Install nvm][6]
+- I recommend if your new to node to learn about and use nvm (node version manger) to manage your node versions [Install nvm][6]
+
 1. Go to project directory<br>
 `cd tasc_exercise`
-1. install the packages
+1. install the packages<br>
 `npm install`
-2. optional - install swagger globally
+2. optional - install swagger globally<br>
 `npm install -g swagger`
-- Now you can run the project is development with
+- Now you can run the project is development with<br>
 `swagger project start`
 
 > or
