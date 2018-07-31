@@ -51,6 +51,11 @@ __Output__
 
 #### How to run the install and run project
 ***
+
+- You should have npm and node install on your computer. If not here is a link how to install them [How-to-install-node][5]
+- I recommend if your new to node to learn about and use nvm (node version manger) to manage your node version [Install nvm][6]
+1. Go to project directory<br>
+`cd tasc_exercise`
 1. install the packages
 `npm install`
 2. optional - install swagger globally
@@ -96,29 +101,12 @@ __Frontend unit testing__
 `npm run test-frontend`<br>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [1]: https://www.npmjs.com/package/should
 [2]: https://www.npmjs.com/package/supertest
 [3]: https://www.npmjs.com/package/jasmine
 [4]: https://www.npmjs.com/package/karma
+[5]: https://nodejs.org/en/download/package-manager/
+[6]: https://github.com/creationix/nvm#installation
 
 
 
