@@ -5,22 +5,31 @@ const InventoryApi = require('../helpers/inventory.api');
 
 function _getItem(req, res) {
     let itemId = req.swagger.params.itemId.value;
+    console.log(itemId);
+    res.json("works");
 }
 
 function _getItems(req, res) {
-    let itemsList = req.swagger.params.items.value;
+    console.log("Running: get all items and return them");
+    res.json([]);
 }
 
 function _updateItem(req, res) {
     let item = req.swagger.params.item.value;
+    console.log(item);
+    res.json("works");
 }
 
 function _removeItem(req, res) {
     let itemId = req.swagger.params.itemId.value;
+    console.log(itemId);
+    res.json("works");
 }
 
 function _removeItems(req, res) {
-    let itemId = req.swagger.params.itemId.value;
+    let itemId = req.swagger.params.items.value;
+    console.log(itemId);
+    res.json("works");
 }
 
 module.exports = {
