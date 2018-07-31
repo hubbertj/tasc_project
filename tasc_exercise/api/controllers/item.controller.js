@@ -1,80 +1,32 @@
 'use strict';
 const util = require('util');
 const ErrorApi = require('../helpers/error.api');
-const TransactionApi = require('../helpers/transaction.api');
+const InventoryApi = require('../helpers/inventory.api');
 
-/**
- * [getTransaction description]
- * @param  {[type]} req [description]
- * @param  {[type]} res [description]
- * @return {[type]}     [description]
- */
-function _getTransaction(req, res) {
-    let transactionId = req.swagger.params.transactionId.value;
-    new TransactionApi().find(transactionId)
-        .then((transaction) => {
-            res.json(transaction);
-        })
-        .catch((err, code) => {
-            var error = new ErrorApi(err.message);
-            error.code = err.code || 500;
-            res.status(error.code).json(error.getErrorMessage());
-        });
+function _getItem(req, res) {
+    let itemId = req.swagger.params.itemId.value;
 }
 
-/**
- * [createTransaction description]
- * @param  {[type]} req [description]
- * @param  {[type]} res [description]
- * @return {[type]}     [description]
- */
-function _createTransaction(req, res) {
-    let items = req.swagger.params.items.value || null;
-    if (items && items.length > 0) {
-        new TransactionApi(items).save()
-            .then((transaction) => {
-                res.json(transaction);
-            })
-            .catch((err, code) => {
-                var error = new ErrorApi(err.message);
-                error.code = err.code || 500;
-                res.status(error.code).json(error.getErrorMessage());
-            })
-
-    } else {
-        var error = new ErrorApi("Items must be passed in the list to create a transaction.");
-        error.code = 400;
-        res.status(error.code).json(error.getErrorMessage());
-    }
+function _getItems(req, res) {
+    let itemsList = req.swagger.params.items.value;
 }
 
-/**
- * [putTransaction description]
- * @param  {[type]} req [description]
- * @param  {[type]} res [description]
- * @return {[type]}     [description]
- */
-function _putTransaction(req, res) {
-    var name = req.swagger.params.name.value || 'stranger';
-    var hello = util.format('Hello, %s!', name);
-    res.json(hello);
+function _updateItem(req, res) {
+    let item = req.swagger.params.item.value;
 }
 
-/**
- * [deleteTransaction description]
- * @param  {[type]} req [description]
- * @param  {[type]} res [description]
- * @return {[type]}     [description]
- */
-function _deleteTransaction(req, res) {
-    var name = req.swagger.params.name.value || 'stranger';
-    var hello = util.format('Hello, %s!', name);
-    res.json(hello);
+function _removeItem(req, res) {
+    let itemId = req.swagger.params.itemId.value;
+}
+
+function _removeItems(req, res) {
+    let itemId = req.swagger.params.itemId.value;
 }
 
 module.exports = {
-    getTransaction: _getTransaction,
-    createTransaction: _createTransaction,
-    putTransaction: _putTransaction,
-    deleteTransaction: _deleteTransaction
+    getItem: _getItem,
+    getAllItems: _getItems,
+    putItem: _updateItem,
+    deleteItem: _removeItem,
+    deleteItems: _removeItems
 };

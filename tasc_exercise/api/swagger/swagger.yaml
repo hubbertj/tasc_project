@@ -138,6 +138,117 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
 
+  "/item/{itemId}":
+    x-swagger-router-controller: item.controller
+    get:
+      tags:
+        - Item
+      description: Returns a item.
+      operationId: getItem
+      parameters:
+        - name: itemId
+          in: path
+          description: ID of the item we are retrieving
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Item"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+        - Item
+      description: Removes a item.
+      operationId: deleteItem
+      parameters:
+        - name: itemId
+          in: path
+          description: ID of the item we are removing
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/SimpleResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  "/item/deleteAll":
+    x-swagger-router-controller: item.controller
+    delete:
+      tags:
+        - Item
+      description: Removes a listo of items.
+      operationId: deleteItems
+      parameters:
+        - in: body
+          name: items
+          description: List of items which will be removed.
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/DeleteItemRequest"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/SimpleResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  "/item/getAll":
+    x-swagger-router-controller: item.controller
+    get:
+      tags:
+        - Item
+      description: Gets all items in the system.
+      operationId: getAllItems
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Item"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /item:
+    x-swagger-router-controller: item.controller
+    put:
+      tags:
+        - Item
+      description: Updates an single item in the system.
+      operationId: putItem
+      parameters:
+        - in: body
+          name: item
+          description: Item which will be updated and its attr.
+          required: true
+          schema:
+            $ref: "#/definitions/Item"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Item"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
   /swagger:
     x-swagger-pipe: swagger_raw
 
@@ -167,6 +278,11 @@ definitions:
       quantity:
         type: integer
         format: int64
+      ItemId:
+        type: integer
+        format: int64
+  DeleteItemRequest:
+    properties:
       ItemId:
         type: integer
         format: int64
