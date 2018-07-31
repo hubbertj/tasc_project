@@ -40,6 +40,27 @@ function InventoryApi() {
         });
     }
 
+    this.removeItem = function(itemId) {
+        return new Promise((resolve, reject) => {
+            try {
+                let itemList = DB.getData("/item");
+                let itemIndex = itemList.findIndex(item => item.id === itemId);
+                if (itemIndex !== -1) {
+                    itemList.splice(itemIndex, 1);
+                    DB.save();
+                    return resolve(`Item ID ${itemId} was removed from the system.`);
+                } else {
+                    return reject({
+                        message: `Item ID ${itemId} was not found in system`,
+                        code: 404
+                    });
+                }
+            } catch (err) {
+                return reject(err);
+            }
+        });
+    }
+
     /**
      * Updates a items in the system.
      * @param  {[obj]} item Item we are updating and its attr.
@@ -57,7 +78,6 @@ function InventoryApi() {
     this.saveItem = function(itemAttr) {
         return new Promise((result, reject) => {
             try {
-                                console.log(DB);
                 let item = new Item(itemAttr);
                 let itemList = DB.getData("/item");
 
