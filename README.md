@@ -76,15 +76,24 @@ The frontend unit testing is accomlished by using the native angular cli generat
 which uses the [Jasmine][3] & [Karma][4].
 
 __Backend unit testing__
-1. asdsad
-2. asdsad
-3. asdsad	
+1. install the packages<br>
+`npm install`<br>
+2. Optional - install swagger globally
+`npm install -g swagger`
+3. Then run a<br>
+`swagger project test`
 
+> or
+
+4. After a `npm install` just run<br>
+`npm run test-backend`
+- This will run a `swagger project test` for you.
 
 __Frontend unit testing__
-1. asdsad
-2. asdsad
-3. asdsad
+1. install the packages<br>
+`npm install`<br>
+2. install the packages<br>
+`npm run test-frontend`<br>
 
 
 
