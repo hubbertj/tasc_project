@@ -80,12 +80,12 @@ __Backend unit testing__
 `npm install`<br>
 2. Optional - install swagger globally
 `npm install -g swagger`
-3a. Then run a<br>
+3. Then run a<br>
 `swagger project test`
 
 > or
 
-4. After a `npm install` just run<br>
+3a. After a `npm install` just run<br>
 `npm run test-backend`
 - This will run a `swagger project test` for you.
 
