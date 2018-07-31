@@ -85,7 +85,7 @@ __Backend unit testing__
 
 > or
 
-&#09;3a. After a `npm install` just run<br>
+&#09;&#09;3a. After a `npm install` just run<br>
 `npm run test-backend`
 - This will run a `swagger project test` for you.
 
