@@ -5,13 +5,28 @@ const InventoryApi = require('../helpers/inventory.api');
 
 function _getItem(req, res) {
     let itemId = req.swagger.params.itemId.value;
-    console.log(itemId);
-    res.json("works");
+    new InventoryApi().find(itemId)
+        .then((item) => {
+            if(item && 'lastUpdated' in item){
+                delete item.lastUpdated;
+            }
+            res.json(item);
+        })
+        .catch((err, code) => {
+            var error = new ErrorApi(err.message);
+            error.code = err.code || 500;
+            res.status(error.code).json(error.getErrorMessage());
+        });
 }
 
 function _getItems(req, res) {
-    console.log("Running: get all items and return them");
-    res.json([]);
+    new InventoryApi().get()
+        .then(items => res.json(items))
+        .catch((err, code) => {
+            var error = new ErrorApi(err.message);
+            error.code = err.code || 500;
+            res.status(error.code).json(error.getErrorMessage());
+        });
 }
 
 function _updateItem(req, res) {
