@@ -67,7 +67,25 @@ function InventoryApi() {
      * @return {obj} Promise
      */
     this.updateItem = function(item) {
-        return new Promise((result, reject) => {});
+        return new Promise((resolve, reject) => {
+            try {
+                let itemList = DB.getData("/item");
+                let itemIndex = itemList.findIndex(aItem => aItem.id === item.id);
+                if (itemIndex !== -1) {
+                    var newItem = new Item(item);
+                    itemList[itemIndex] = newItem;
+                    DB.save();
+                    return resolve(newItem);
+                } else {
+                    return reject({
+                        message: `Item ID ${item.id} was not found in system`,
+                        code: 404
+                    });
+                }
+            } catch (err) {
+                return reject(err);
+            }
+        });
     }
 
     /**

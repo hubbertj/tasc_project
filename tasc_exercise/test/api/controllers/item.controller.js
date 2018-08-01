@@ -75,7 +75,7 @@ new Promise(function(aResolve, aReject) {
 
                 });
                 it('should be able to (add / modify / delete) a item', function(done) {
-                    var item = null;
+
                     new Promise((resolve, reject) => {
                             request(server)
                                 .post(swaggerApiSettings.basePath + '/item')
@@ -93,7 +93,7 @@ new Promise(function(aResolve, aReject) {
                                     res.body.should.have.property('type').which.is.a.String();
                                     res.body.should.have.property('price').which.is.a.Number();
 
-                                    res.body.price.should.eql(0.00);
+                                    res.body.price.should.eql(99.99);
                                     return resolve(res.body);
                                 });
 
@@ -102,6 +102,7 @@ new Promise(function(aResolve, aReject) {
                             if (newItem && 'price' in newItem) {
                                 newItem.price = 1.99;
                             }
+
                             return new Promise((resolve, reject) => {
                                 request(server)
                                     .put(swaggerApiSettings.basePath + '/item')
