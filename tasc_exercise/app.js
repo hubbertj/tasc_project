@@ -40,7 +40,7 @@ globals.init()
         global.tasc = aGlobal;
         return new Promise((result, reject) => {
             try {
-                var db = new JsonDB(__dirname + "/static_database/db", false, false);
+                var db = new JsonDB(__dirname + "/static_database/db", false, true);
                 return result(db);
             } catch (err) {
                 return reject(err);

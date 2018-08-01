@@ -1,6 +1,7 @@
 'use strict';
 const util = require('util');
 const Transaction = require('../entity/transaction.entity');
+const Item = require('../entity/item.entity');
 const toFixed = require('tofixed');
 
 function TransactionApi(items) {
@@ -80,7 +81,6 @@ function TransactionApi(items) {
                 let filterItemList = itemsList.map((val, i, arr) => val.id);
                 let transactionList = DB.getData("/transaction");
                 let newTransactionId = 1;
-                let transaction = null;
                 let transItems = [];
 
                 if (util.isArray(transactionList)) {
@@ -100,9 +100,11 @@ function TransactionApi(items) {
                     }
                     //Adds current prices to items.
                     var fItem = itemsList.find((aItem) => aItem.id === self.items[item].ItemId);
+                    // console.log(fItem);
                     if (fItem) {
-                        fItem.quantity = self.items[item].quantity;
-                        transItems.push(fItem);
+                        var newItem = new Item(fItem);
+                        newItem.quantity = self.items[item].quantity;
+                        transItems.push(newItem);
                     }
                 }
 
@@ -115,17 +117,20 @@ function TransactionApi(items) {
                 let subTotal = self.getTransactionTotal();
                 let totalRounded = parseFloat(toFixed((tax + subTotal), 2));
 
-                transaction = new Transaction({
+                let transaction = new Transaction({
                     id: newTransactionId,
                     items: transItems,
                     tax: tax,
                     subTotal: subTotal,
                     total: totalRounded
                 });
+
+
                 transactionList.push(transaction);
 
                 DB.push("/transaction", transactionList);
                 DB.save();
+  
                 return result(transaction);
 
             } catch (err) {

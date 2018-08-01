@@ -5,14 +5,14 @@ const swaggerPath = 'api/swagger/swagger.yaml';
 const readYaml = require('read-yaml');
 
 const checkoutPostData = [{
-        "quantity": 5,
-        "ItemId": 1
+        "quantity": 2,
+        "ItemId": 3
     },
     {
-        "quantity": 4,
+        "quantity": 2,
         "ItemId": 2
     }, {
-        "quantity": 5,
+        "quantity": 2,
         "ItemId": 3
     }
 ];

@@ -30,7 +30,8 @@ function InventoryApi() {
             let itemList = DB.getData("/item");
             let fItem = itemList.find(item => item.id === itemId);
             if (fItem) {
-                return resolve(fItem);
+                let newItem = new Item(fItem);
+                return resolve(newItem);
             } else {
                 return reject({
                     message: `Item ID ${itemId} was not found in system`,
