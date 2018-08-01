@@ -11,7 +11,7 @@
         },
         {
             "id": 2,
-            "name": "Walkman",
+            "name": "walkman",
             "type": "",
             "import": false,
             "except": false,
@@ -29,8 +29,8 @@
         },
         {
             "id": 4,
-            "name": "bag of vanilla",
-            "type": "hazelnut coffee",
+            "name": "bag of vanilla-hazelnut coffee",
+            "type": "coffee",
             "import": true,
             "except": true,
             "price": 16,
@@ -47,8 +47,8 @@
         },
         {
             "id": 6,
-            "name": "almond snickers",
-            "type": "crate",
+            "name": "crate of almond snickers",
+            "type": "candy",
             "import": true,
             "except": true,
             "price": 75.99,
@@ -74,8 +74,8 @@
         },
         {
             "id": 9,
-            "name": "bag of Fair - Trade Coffee ",
-            "type": "",
+            "name": "bag of fair-trade coffee",
+            "type": "coffee",
             "import": false,
             "except": true,
             "price": 997.99,
@@ -246,6 +246,357 @@
                 }
             ],
             "lastUpdated": 1533151350590
+        },
+        {
+            "id": 6,
+            "subTotal": 116.98,
+            "tax": 18.5,
+            "total": 135.48,
+            "items": [
+                {
+                    "id": 1,
+                    "name": "16lb bag of skittles",
+                    "type": "",
+                    "import": false,
+                    "except": true,
+                    "price": 16,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "walkman",
+                    "type": "",
+                    "import": false,
+                    "except": false,
+                    "price": 99.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 3,
+                    "name": "bag of microwave popcorn",
+                    "type": "",
+                    "import": false,
+                    "except": true,
+                    "price": 0.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533152910203
+        },
+        {
+            "id": 7,
+            "subTotal": 15017.25,
+            "tax": 1508.15,
+            "total": 16525.4,
+            "items": [
+                {
+                    "id": 4,
+                    "name": "bag of vanilla-hazelnut coffee",
+                    "type": "coffee",
+                    "import": true,
+                    "except": true,
+                    "price": 16,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 5,
+                    "name": "vespa",
+                    "type": "",
+                    "import": true,
+                    "except": false,
+                    "price": 15001.25,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533152910206
+        },
+        {
+            "id": 8,
+            "subTotal": 1138.98,
+            "tax": 543.5,
+            "total": 1682.48,
+            "items": [
+                {
+                    "id": 6,
+                    "name": "crate of almond snickers",
+                    "type": "candy",
+                    "import": true,
+                    "except": true,
+                    "price": 75.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 7,
+                    "name": "discman",
+                    "type": "",
+                    "import": false,
+                    "except": false,
+                    "price": 55,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 8,
+                    "name": "bottle of wine",
+                    "type": "",
+                    "import": true,
+                    "except": false,
+                    "price": 10,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 9,
+                    "name": "bag of fair-trade coffee",
+                    "type": "coffee",
+                    "import": false,
+                    "except": true,
+                    "price": 997.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533152910210
+        },
+        {
+            "id": 9,
+            "subTotal": 116.98,
+            "tax": 18.5,
+            "total": 135.48,
+            "items": [
+                {
+                    "id": 1,
+                    "name": "16lb bag of skittles",
+                    "type": "",
+                    "import": false,
+                    "except": true,
+                    "price": 16,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "walkman",
+                    "type": "",
+                    "import": false,
+                    "except": false,
+                    "price": 99.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 3,
+                    "name": "bag of microwave popcorn",
+                    "type": "",
+                    "import": false,
+                    "except": true,
+                    "price": 0.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533153096058
+        },
+        {
+            "id": 10,
+            "subTotal": 15017.25,
+            "tax": 1508.15,
+            "total": 16525.4,
+            "items": [
+                {
+                    "id": 4,
+                    "name": "bag of vanilla-hazelnut coffee",
+                    "type": "coffee",
+                    "import": true,
+                    "except": true,
+                    "price": 16,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 5,
+                    "name": "vespa",
+                    "type": "",
+                    "import": true,
+                    "except": false,
+                    "price": 15001.25,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533153096060
+        },
+        {
+            "id": 11,
+            "subTotal": 1138.98,
+            "tax": 543.5,
+            "total": 1682.48,
+            "items": [
+                {
+                    "id": 6,
+                    "name": "crate of almond snickers",
+                    "type": "candy",
+                    "import": true,
+                    "except": true,
+                    "price": 75.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 7,
+                    "name": "discman",
+                    "type": "",
+                    "import": false,
+                    "except": false,
+                    "price": 55,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 8,
+                    "name": "bottle of wine",
+                    "type": "",
+                    "import": true,
+                    "except": false,
+                    "price": 10,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 9,
+                    "name": "bag of fair-trade coffee",
+                    "type": "coffee",
+                    "import": false,
+                    "except": true,
+                    "price": 997.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533153096064
+        },
+        {
+            "id": 12,
+            "subTotal": 116.98,
+            "tax": 18.5,
+            "total": 135.48,
+            "items": [
+                {
+                    "id": 1,
+                    "name": "16lb bag of skittles",
+                    "type": "",
+                    "import": false,
+                    "except": true,
+                    "price": 16,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "name": "walkman",
+                    "type": "",
+                    "import": false,
+                    "except": false,
+                    "price": 99.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 3,
+                    "name": "bag of microwave popcorn",
+                    "type": "",
+                    "import": false,
+                    "except": true,
+                    "price": 0.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533153177164
+        },
+        {
+            "id": 13,
+            "subTotal": 15017.25,
+            "tax": 1508.15,
+            "total": 16525.4,
+            "items": [
+                {
+                    "id": 4,
+                    "name": "bag of vanilla-hazelnut coffee",
+                    "type": "coffee",
+                    "import": true,
+                    "except": true,
+                    "price": 16,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 5,
+                    "name": "vespa",
+                    "type": "",
+                    "import": true,
+                    "except": false,
+                    "price": 15001.25,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533153177166
+        },
+        {
+            "id": 14,
+            "subTotal": 1138.98,
+            "tax": 543.5,
+            "total": 1682.48,
+            "items": [
+                {
+                    "id": 6,
+                    "name": "crate of almond snickers",
+                    "type": "candy",
+                    "import": true,
+                    "except": true,
+                    "price": 75.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 7,
+                    "name": "discman",
+                    "type": "",
+                    "import": false,
+                    "except": false,
+                    "price": 55,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 8,
+                    "name": "bottle of wine",
+                    "type": "",
+                    "import": true,
+                    "except": false,
+                    "price": 10,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                },
+                {
+                    "id": 9,
+                    "name": "bag of fair-trade coffee",
+                    "type": "coffee",
+                    "import": false,
+                    "except": true,
+                    "price": 997.99,
+                    "lastUpdated": 1532808680263,
+                    "quantity": 1
+                }
+            ],
+            "lastUpdated": 1533153177171
         }
     ]
 }
