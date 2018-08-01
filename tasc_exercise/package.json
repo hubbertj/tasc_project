@@ -39,6 +39,7 @@
     "tslint": "~5.9.1"
   },
   "scripts": {
+    "readme-purchase-test": "node scripts/tasc_test.js",
     "postinstall": "cd public/checkout-app/ && npm install",
     "start": "cd public/checkout-app/ && ng build && cd ../../ && node app.js",
     "test-backend": "swagger project test",
