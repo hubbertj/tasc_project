@@ -49,6 +49,19 @@ __Output__
 &nbsp;&nbsp;1 bag of microwave Popcorn: 0.99<br>
 &nbsp;&nbsp;Sales Taxes: 10.00<br>
 
+#### How to run the solution
+***
+
+- A node script was created to process the details above.
+- The script envokes the server and runs the need http calls to achive the output.
+
+> To run the script:
+1. install the packages<br>
+`npm install`<br>
+2. Run the project like a native node application<br>
+`npm run readme-purchase-test`<br>
+- The output receipt should print to the console.
+
 #### How to run the install and run project
 ***
 
