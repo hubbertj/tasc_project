@@ -4,14 +4,18 @@ const Transaction = require('../entity/transaction.entity');
 const Item = require('../entity/item.entity');
 const toFixed = require('tofixed');
 
+/**
+ * Api for inventory managment
+ * @param {[array]} items List of items for transaction to process
+ */
 function TransactionApi(items) {
     var self = this;
     this.items = items;
 
     /**
      * The total for just the items, rounded to nearest cent.
-     * @param  {[type]} itms [description]
-     * @return {[type]}      [description]
+     * @param  {[array]} itms items to calc
+     * @return {[float]} The total for transaction
      */
     this.getTransactionTotal = function(itms) {
         let items = itms || self.items;
@@ -27,9 +31,9 @@ function TransactionApi(items) {
     }
 
     /**
-     * [getTaxTotal description]
-     * @param  {[type]} itms [description]
-     * @return {[type]}      [description]
+     * calcs the taxas for the transaction
+     * @param  {[array]} itms items to calc
+     * @return {[float]} The total taxes
      */
     this.getTaxTotal = function(itms) {
         let items = itms || self.items;
@@ -55,6 +59,11 @@ function TransactionApi(items) {
         return totalTax + totalImportTax;
     }
 
+    /**
+     * Return a transaction from the id
+     * @param  {[int]} transactionId The transaction id
+     * @return {[obj]} Promise The found transaction
+     */
     this.find = function(transactionId) {
         return new Promise((resolve, reject) => {
             let transactionList = DB.getData("/transaction");
@@ -71,8 +80,61 @@ function TransactionApi(items) {
     }
 
     /**
-     * [save description]
-     * @return {[type]} [description]
+     * Updates a transaction
+     * @param  {[obj]} tran The transaction attr to update
+     * @return {[obj]} Promise a transaction
+     */
+    this.updateTransaction = function(tran) {
+        return new Promise((resolve, reject) => {
+            try {
+                let transList = DB.getData("/transaction");
+                let transIndex = transList.findIndex(aTran => aTran.id === tran.id);
+                if (transIndex !== -1) {
+                    var newTran = new Transaction(tran);
+                    transList[transIndex] = newTran;
+                    DB.save();
+                    return resolve(newTran);
+                } else {
+                    return reject({
+                        message: `Transaction ID ${tran.id} was not found in system`,
+                        code: 404
+                    });
+                }
+            } catch (err) {
+                return reject(err);
+            }
+        });
+    }
+    
+    /**
+     * Removes a transaction from the system
+     * @param  {[int]} transId  id of the transaction
+     * @return {[obj]} Promise a simple message of what happen
+     */
+    this.removeTransaction = function(transId) {
+        return new Promise((resolve, reject) => {
+            try {
+                let transList = DB.getData("/transaction");
+                let tranIndex = transList.findIndex(tran => tran.id === transId);
+                if (tranIndex !== -1) {
+                    transList.splice(tranIndex, 1);
+                    DB.save();
+                    return resolve(`Transaction ID ${transId} was removed from the system.`);
+                } else {
+                    return reject({
+                        message: `Transaction ID ${transId} was not found in system`,
+                        code: 404
+                    });
+                }
+            } catch (err) {
+                return reject(err);
+            }
+        });
+    }
+
+    /**
+     * Save a transaction from the item list
+     * @return {[obj]} Promise returns a transaction.
      */
     this.save = function() {
         return new Promise((result, reject) => {
@@ -100,7 +162,7 @@ function TransactionApi(items) {
                     }
                     //Adds current prices to items.
                     var fItem = itemsList.find((aItem) => aItem.id === self.items[item].ItemId);
-                    // console.log(fItem);
+
                     if (fItem) {
                         var newItem = new Item(fItem);
                         newItem.quantity = self.items[item].quantity;
@@ -130,7 +192,7 @@ function TransactionApi(items) {
 
                 DB.push("/transaction", transactionList);
                 DB.save();
-  
+
                 return result(transaction);
 
             } catch (err) {

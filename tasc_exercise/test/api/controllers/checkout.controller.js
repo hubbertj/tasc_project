@@ -4,7 +4,7 @@ var server = require('../../../app');
 const swaggerPath = 'api/swagger/swagger.yaml';
 const readYaml = require('read-yaml');
 
-const checkoutPostData = [{
+var checkoutPostData = [{
         "quantity": 2,
         "ItemId": 3
     },
@@ -46,7 +46,8 @@ new Promise(function(aResolve, aReject) {
                             done();
                         });
                 });
-
+            });
+            describe('GET /checkout/{transactionId}', function() {
                 it('should get a transaction', function(done) {
                     request(server)
                         .get(swaggerApiSettings.basePath + '/checkout/1')
@@ -71,4 +72,3 @@ new Promise(function(aResolve, aReject) {
 }).catch((err) => {
     console.error(err);
 });
-

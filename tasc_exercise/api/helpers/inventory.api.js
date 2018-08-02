@@ -2,6 +2,9 @@
 const util = require('util');
 const Item = require('../entity/item.entity');
 
+/**
+ * Api for inventory management
+ */
 function InventoryApi() {
     var self = this;
 
@@ -41,6 +44,11 @@ function InventoryApi() {
         });
     }
 
+    /**
+     * removes a single transaction
+     * @param  {[int]} itemId The item id
+     * @return {[obj]} Promise a simple message as to what was removed.
+     */
     this.removeItem = function(itemId) {
         return new Promise((resolve, reject) => {
             try {
@@ -63,9 +71,34 @@ function InventoryApi() {
     }
 
     /**
+     * Removes a list of items
+     * @param  {[array]} items a list of item id's
+     * @return {[obj]} Promise a simple message as to what was removed.
+     */
+    this.removeItems = function(items) {
+        return new Promise((resolve, reject) => {
+            try {
+                var itemList = DB.getData("/item");
+                var removedList = [];
+                items.forEach((itemId) => {
+                    let itemIndex = itemList.findIndex(item => item.id === itemId);
+                    if (itemIndex !== -1) {
+                        removedList.push(itemList[itemIndex].id);
+                        itemList.splice(itemIndex, 1);
+                    }
+                });
+                DB.save();
+                return resolve(`Item ID's ${removedList} were removed from the system.`);
+            } catch (err) {
+                return reject(err);
+            }
+        });
+    }
+
+    /**
      * Updates a items in the system.
      * @param  {[obj]} item Item we are updating and its attr.
-     * @return {obj} Promise
+     * @return {obj} Promise a item which was updated
      */
     this.updateItem = function(item) {
         return new Promise((resolve, reject) => {
@@ -92,7 +125,7 @@ function InventoryApi() {
     /**
      * Saves a items to the system
      * @param  {[obj]} item Item we are saveing.
-     * @return {obj} Promise
+     * @return {obj} Promise a item which was saved
      */
     this.saveItem = function(itemAttr) {
         return new Promise((result, reject) => {

@@ -2,10 +2,10 @@
 const util = require('util');
 
 /**
- * [_healthCheck description]
- * @param  {[type]} req [description]
- * @param  {[type]} res [description]
- * @return {[type]}     [description]
+ * Call which handles the health check for the system.
+ * @param  {[obj]} req
+ * @param  {[obj]} res 
+ * @return {[str]}    A simple message
  */
 function _healthCheck(req, res) {
     var status = req.swagger.params.status.value || 'UNKNOWN';

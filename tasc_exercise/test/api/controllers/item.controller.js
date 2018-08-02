@@ -39,6 +39,8 @@ new Promise(function(aResolve, aReject) {
                             done();
                         });
                 });
+            });
+            describe('POST /item & DELETE /item/{itemId}', function() {
                 it('should be able to (add / delete) a item.', function(done) {
                     new Promise((resolve, reject) => {
                             request(server)
@@ -74,8 +76,9 @@ new Promise(function(aResolve, aReject) {
                         .catch(err => console.error(err));
 
                 });
+            });
+            describe('POST /item & PUT /item & DELETE /item/{itemId}', function() {
                 it('should be able to (add / modify / delete) a item', function(done) {
-
                     new Promise((resolve, reject) => {
                             request(server)
                                 .post(swaggerApiSettings.basePath + '/item')
@@ -138,6 +141,7 @@ new Promise(function(aResolve, aReject) {
                                 });
                         }).catch(err => console.error(err));
                 });
+
             });
         });
     });
