@@ -17,25 +17,41 @@ const request = require('supertest');
 const server = require('../app');
 const swaggerPath = 'api/swagger/swagger.yaml';
 const readYaml = require('read-yaml');
+const toFixed = require('tofixed');
 
-//helper functions.
-var printReceiptToConsole = function(response){
-    console.log(JSON.stringify(response));
+/**
+ * Prints a receipt for the transaction.
+ * @param  {obj} trans The data from the transaction.
+ * @return {null}
+ */
+var printReceiptToConsole = function(trans) {
+    console.log("");
+    console.log("\t-------------------Sale Receipt------------------------");
+    console.log(`\tTransaction id: ${trans.id}`.padStart(5));
+    console.log("");
+    trans.items.forEach((item) => {
+        console.log(`\t${item.quantity} ${item.name} = ${toFixed((item.price * item.quantity) ,2)}`);
+    });
+    console.log("\t------------------");
+    console.log(`\tTax: ${toFixed(trans.tax, 2)}`);
+    console.log(`\tSub Total: ${toFixed(trans.subTotal, 2)}`);
+    console.log(`\tTotal: ${toFixed(trans.total, 2)}`);
+    console.log("");
 };
 
 // The list of the items to purhcase;
-let shoppingList1 = [
+var shoppingList1 = [
     { name: "16lb bag of skittles", qty: 1 },
     { name: "walkman", qty: 1 },
     { name: "bag of microwave popcorn", qty: 1 }
 ];
 
-let shoppingList2 = [
+var shoppingList2 = [
     { name: "bag of vanilla-hazelnut coffee", qty: 1 },
     { name: "vespa", qty: 1 }
 ];
 
-let shoppingList3 = [
+var shoppingList3 = [
     { name: "crate of almond snickers", qty: 1 },
     { name: "discman", qty: 1 },
     { name: "bottle of wine", qty: 1 },
@@ -43,7 +59,7 @@ let shoppingList3 = [
 ];
 
 
-// main block
+// Main Block
 (function(shoppingLists) {
     var swaggerApiSettings = null;
 
@@ -73,8 +89,13 @@ let shoppingList3 = [
 
             shoppingLists.forEach((shoppingList) => {
                 let orderList = [];
+
+                console.log("\tPurchasing:");
+                shoppingList.forEach(item => console.log("\t" + item.qty + " " + item.name));
+                console.log("");
+
                 shoppingList.forEach((item) => {
-                    var foundItem = list.find(aItem => item.name.toLowerCase() === aItem.name.toLowerCase());
+                    let foundItem = list.find(aItem => item.name.toLowerCase() === aItem.name.toLowerCase());
                     if (foundItem) {
                         orderList.push({ ItemId: foundItem.id, quantity: item.qty })
                     }
@@ -99,7 +120,11 @@ let shoppingList3 = [
             return Promise.all(promises);
         })
         .then((response) => {
-            printReceiptToConsole(response);
+            if (response && response.length > 0) {
+                response.forEach((transaction) => {
+                    printReceiptToConsole(transaction);
+                });
+            }
             process.exit();
         })
         .catch((err) => {
